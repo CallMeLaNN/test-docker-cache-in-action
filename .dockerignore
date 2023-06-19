@@ -1,0 +1,18 @@
+# Turn to whitelist
+*
+
+# This file, so changes here will invalidate ADD/COPY cache
+!.dockerignore
+
+# Node pnpm ts
+!.npmrc
+!pnpm-workspace.yaml
+!pnpm-lock.yaml
+!package.json
+!tsconfig.json
+
+# Source
+!src/*
+
+# Cached built output
+!dist
