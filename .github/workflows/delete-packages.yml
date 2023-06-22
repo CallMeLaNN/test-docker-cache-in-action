@@ -7,10 +7,12 @@ on:
         description: "The number of latest versions to keep. When set to 0, all deletable versions will be deleted."
         required: true
         default: "5"
+        type: number
       delete-only-untagged-versions:
         description: "If true it will delete only the untagged versions"
         required: true
-        default: "true"
+        default: true
+        type: boolean
 
 jobs:
   delete-packages:
@@ -21,5 +23,5 @@ jobs:
         with:
           package-name: "test-docker-cache-in-action"
           package-type: "container"
-          min-versions-to-keep: 10
-          delete-only-pre-release-versions: "true"
+          min-versions-to-keep: ${{ inputs.min-versions-to-keep }}
+          delete-only-pre-release-versions: ${{ inputs.delete-only-untagged-versions }}
