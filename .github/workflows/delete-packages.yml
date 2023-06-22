@@ -4,7 +4,7 @@ on:
   workflow_dispatch:
     inputs:
       min-versions-to-keep:
-        description: "Number of latest versions to keep"
+        description: "Number of latest versions to keep (min: 1)"
         required: true
         default: "5"
         type: number
