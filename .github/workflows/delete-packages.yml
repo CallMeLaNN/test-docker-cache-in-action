@@ -4,12 +4,12 @@ on:
   workflow_dispatch:
     inputs:
       min-versions-to-keep:
-        description: "The number of latest versions to keep. When set to 0, all deletable versions will be deleted."
+        description: "Number of latest versions to keep"
         required: true
         default: "5"
         type: number
       delete-only-untagged-versions:
-        description: "If true it will delete only the untagged versions"
+        description: "Delete only untagged versions"
         required: true
         default: true
         type: boolean
