@@ -1,0 +1,25 @@
+name: Delete github packages
+
+on:
+  workflow_dispatch:
+    inputs:
+      min-versions-to-keep:
+        description: "The number of latest versions to keep. When set to 0, all deletable versions will be deleted."
+        required: true
+        default: "5"
+      delete-only-untagged-versions:
+        description: "If true it will delete only the untagged versions"
+        required: true
+        default: "true"
+
+jobs:
+  delete-packages:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Delete package
+        uses: actions/delete-package-versions@v4
+        with:
+          package-name: "test-docker-cache-in-action"
+          package-type: "container"
+          min-versions-to-keep: 10
+          delete-only-pre-release-versions: "true"
