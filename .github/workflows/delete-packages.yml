@@ -17,6 +17,8 @@ on:
 jobs:
   delete-packages:
     runs-on: ubuntu-latest
+    permissions:
+      packages: write
     steps:
       - name: Delete package
         uses: actions/delete-package-versions@v4
