@@ -11,17 +11,17 @@ WORKDIR ${WORKDIR}
 
 RUN corepack enable
 RUN corepack prepare pnpm@${PNPM_VERSION} --activate
-# 51902e2cd8df
+# 51902e2cd8df, 9cf52c05f101
 
 
-# FROM base as builder
+FROM base as builder
 
-# ## Cache npm packages unless dependencies changed
-# COPY --link pnpm-lock.yaml .npmrc ./
-# RUN --mount=type=cache,target=${PNPM_STORE} \
-#   pnpm fetch
-# # e1560c7aa30b (before npmrc modified)
-# # 3f911992bd5b (after npmrc modified)
+## Cache npm packages unless dependencies changed
+COPY --link pnpm-lock.yaml .npmrc ./
+RUN --mount=type=cache,target=${PNPM_STORE} \
+  pnpm fetch
+# e1560c7aa30b, c12973ce07e8 (before npmrc modified)
+# 3f911992bd5b (after npmrc modified)
 
 # ## Cache pnpm install unless package.json(s) changed
 # COPY --link package.json ./
