@@ -3,15 +3,15 @@
 ARG NODE_VERSION=18
 
 FROM node:${NODE_VERSION}-alpine as base
-# # ce2ebe75a855
-# ARG PNPM_VERSION=8.6.2
-# ARG PNPM_STORE=/root/.local/share/pnpm/store
-# ARG WORKDIR=/home/node/app
-# WORKDIR ${WORKDIR}
+# ce2ebe75a855
+ARG PNPM_VERSION=8.6.2
+ARG PNPM_STORE=/root/.local/share/pnpm/store
+ARG WORKDIR=/home/node/app
+WORKDIR ${WORKDIR}
 
-# RUN corepack enable
-# RUN corepack prepare pnpm@${PNPM_VERSION} --activate
-# # 51902e2cd8df
+RUN corepack enable
+RUN corepack prepare pnpm@${PNPM_VERSION} --activate
+# 51902e2cd8df
 
 
 # FROM base as builder
