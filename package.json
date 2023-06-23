@@ -6,7 +6,7 @@
   "scripts": {
     "build": "tsc",
     "start": "node dist/index.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "img-build": "docker buildx build --platform=linux/amd64 -t test-docker-cache-in-action ."
   },
   "keywords": [],
   "author": "",
